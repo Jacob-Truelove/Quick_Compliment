@@ -22,7 +22,7 @@ void Profile::add_favorite(compliment favorite){
 }
 
 std::string Profile::to_string(){
-    return username + login_word;
+    return username + ' ' + login_word + '\n';
 }
 
 void Profile::upload(){

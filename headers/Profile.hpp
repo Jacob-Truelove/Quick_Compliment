@@ -8,8 +8,9 @@ class Profile{
         std::vector<compliment> favorites;
 
     public:
-        Profile(std::string looks, std::string talent, std::string personality);
-        bool login(std::string name, std::string password);
+        Profile(std::string name, std::string password);
+        bool set_q(std::string looks, std::string talent, std::string personality);
         void add_favorite(compliment favorite);
         std::string to_string();
+        void upload();
 };

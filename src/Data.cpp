@@ -3,15 +3,22 @@
 
 Data::Data(std::vector<Profile> server_data){
     profile_data = server_data;
+    std::string name, pass;
+    std::ifstream fp;
+
+    fp.open("profile_data.txt");
+    while((fp >> name) && (fp >> pass))
+        add_profile(Profile(name, pass));
+    std::cout << name << " " << pass;
 }
 
 void Data::add_profile(Profile profile){
-    profile_data.push_back(profile);
+    if(!search(profile))
+        profile_data.push_back(profile);
 }
 
 void Data::to_file(){
-    std::ofstream fp;
-    fp.open("profile_data.txt");
+    std::ofstream fp{"profile_data.txt"};
     Profile tempp("", "");
     std::string str;
     for(int i = 0; i < profile_data.size(); i++){

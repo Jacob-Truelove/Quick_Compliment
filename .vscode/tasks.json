@@ -10,7 +10,7 @@
 				"-g",
 				"*.cpp",
 				"-o",
-				"game.exe"
+				"data_check.exe"
 			],
 			"options": {
 				"cwd": "${fileDirname}"

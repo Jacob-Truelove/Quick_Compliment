@@ -10,4 +10,5 @@ class Data{
         void readfile();
         void add_profile(Profile profile);
         void to_file();
+        bool search(Profile profile);
 };
