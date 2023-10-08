@@ -1,12 +1,6 @@
 #include "../headers/Data.hpp"
+#include <fstream>
 
-char* str_to_char(std::string s){
-    char * str = (char*)malloc(s.length() * sizeof(char));
-    for(int i = 0; i <s.length(); i++){
-        str[i] = s.at(i);
-    }
-    return str;
-}
 Data::Data(std::vector<Profile> server_data){
     profile_data = server_data;
 }
@@ -16,15 +10,16 @@ void Data::add_profile(Profile profile){
 }
 
 void Data::to_file(){
-    FILE * fp = fopen("profile_data.txt", "w");
-    Profile tempp(NULL, NULL);
+    std::ofstream fp;
+    fp.open("profile_data.txt");
+    Profile tempp("", "");
     std::string str;
     for(int i = 0; i < profile_data.size(); i++){
         tempp = profile_data.at(i);
-        str = tempp.to_string();
-        char * line = str_to_char(str);
-        fwrite(line, 1, sizeof(tempp.to_string()), fp);
+        std::cout << tempp.to_string();
+        fp << tempp.to_string();
     }
+    fp.close();
 }
 void Data::readfile(){
 
