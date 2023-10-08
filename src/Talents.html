@@ -1,0 +1,30 @@
+Talents
+<html>
+    <head>
+        <script type="text/javascript">
+            function validateForm()
+            {
+                var name=document.talents.T.value;
+
+                if(name==null || name=="")
+                {
+                    alert("Talents cannot be empty");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <FORM name="talents" id="talents" onsubmit="return(validateForm())">	
+        Your talents:<br>
+            <INPUT TYPE="TEXT" name="T" id="T" placeholder="your talents">
+            <BR>
+    
+        <INPUT TYPE="SUBMIT" >
+        
+        <BR>
+        
+    </FORM>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+	<script src= "./talents.js"></script>
+</html>
+

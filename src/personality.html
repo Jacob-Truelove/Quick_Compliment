@@ -1,0 +1,29 @@
+personality
+<html>
+    <head>
+        <script type="text/javascript">
+            function validateForm()
+            {
+                var name=document.personality.P.value;
+
+                if(name==null || name=="")
+                {
+                    alert("Personality cannot be empty");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <FORM name="personality" id="personality" onsubmit="return(validateForm())">	
+        Your personality:<br>
+            <INPUT TYPE="TEXT" name="P" id="P" placeholder="your personality">
+            <BR>
+    
+        <INPUT TYPE="SUBMIT" >
+        
+        <BR>
+        
+    </FORM>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+	<script src= "./personality.js"></script>
+</html>

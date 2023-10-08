@@ -1,0 +1,29 @@
+looks
+<html>
+    <head>
+        <script type="text/javascript">
+            function validateForm()
+            {
+                var name=document.lk.L.value;
+
+                if(name==null || name=="")
+                {
+                    alert("Looks cannot be empty");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <FORM name="Lk" id="Looks" onsubmit="return(validateForm())">	
+        Your Looks:<br>
+            <INPUT TYPE="TEXT" name="L" id="L" placeholder="your Looks">
+            <BR>
+    
+        <INPUT TYPE="SUBMIT" >
+        
+        <BR>
+        
+    </FORM>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+	<script src= "./looks.js"></script>
+</html>
