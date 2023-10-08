@@ -1,0 +1,151 @@
+<html>
+	<head>
+		<title>form</title>
+		<link rel="stylesheet" type="text/css" href="css/navbar.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript">
+		function validateForm()
+		{
+			var name=document.myform.name.value;
+			var pass=document.myform.pass.value;
+			var address=document.myform.address.value;
+			var code=document.myform.zip.value;
+			var mail=document.myform.mail.value;
+			var pic=document.myform.pic.value;
+			
+			if(name==null || name=="")
+			{
+				alert("Name cannot be empty");
+				return false;
+			}
+			else if (pass.length<8)
+			{
+				alert("password should be atleast  8 characters");
+				return false;
+			}
+			else if (pass==null || pass=="")
+			{
+			alert("password cannot be empty")
+			return false;
+			}
+			else if (address==null || address=="")
+			{
+			alert("address cannot be empty");
+			return false;
+			}
+			else if (code==null || code=="")
+			{
+			alert("zip-code cannot be empty");
+			return false;
+			}
+			else if (mail==null || mail=="")
+			{
+			alert("email cannot be empty");
+			return false;
+			}
+			else if (pic==null || pic=="")
+			{
+			alert("Picture cannot be empty");
+			return false;
+			}
+		}
+	</script>
+	</head>
+
+	<body >
+		<ul id="a">
+		  	<li ><a  class="b" href="home.html">Home</a></li>
+		  	<li ><a  class="b" href="aboutt20.html">About T-20 Cricket</a></li>
+		  	<li ><a  class="b" href="aboutodi.html">About ODI Cricket</a></li>
+		  	<li ><a  class="b" href="abouttest.html">About Test Cricket</a></li>
+		  	<li ><a  class="b" href="gallery.html">Gallery</a></li>
+		  	<li ><a  class="b" id="active" href="form.html">Sign-up form</a></li>
+		  	<li ><a  class="b" href="queries.html">Queries</a></li>
+		</ul><br><br><br>
+		<FIELDSET>
+			<LEGEND align="center"><H3> <B>Sign-Up Form</B> </H3></LEGEND>
+				<FORM name="myform" action="form submit.html" onsubmit="return(validateForm())">	
+					NAME:<br>
+						<INPUT TYPE="TEXT" name="name" placeholder="your name">
+						<BR>
+
+					ADDRESS:<br>
+						<INPUT TYPE="TEXT" name="address" placeholder="your address">
+						<BR>
+
+					Zip Code:<br>
+						<INPUT TYPE="NUMBER" name="zip" placeholder="12345">
+						<BR>
+
+					COUNTRY:<br>
+						<SELECT>
+							<OPTION>NEPAL</OPTION>
+							<OPTION>INDIA</OPTION>
+							<OPTION>PAKISTAN</OPTION>
+							<OPTION>AFGANISTAN</OPTION>
+							<OPTION>BANGLADESH</OPTION>
+							<OPTION>BHUTAN</OPTION>
+							<OPTION>SRI LANKA</OPTION>
+							<OPTION>MALDIVES</OPTION>
+						</SELECT>
+						<BR>
+
+					GENDER:<br>
+						<INPUT TYPE="RADIO">MALE
+						<INPUT TYPE="RADIO">FEMALE
+						<BR>
+
+
+					EMAIL:<br>
+						<INPUT TYPE="TEXT" name="mail" placeholder="abc@gmail.com">
+						<BR>
+
+					PASSWORD:<br>
+						<INPUT TYPE="PASSWORD" name="pass" placeholder="password">
+						<BR>
+
+					Upload your picture:<br>
+						<input type="file" name="pic" name="photo"> 
+						<BR>
+
+					<INPUT TYPE="SUBMIT" >
+					<?php
+						$servername="localhost";
+						$username="root";
+						$password="";
+						$dbname="myDB";
+
+						$conn=new mysqli($serbername, $username, $passwword, $dbname);
+						if($conn->connect_error)
+						{
+							die("Connection failed:".mysqli_connect_error());
+						} else
+						{
+							echo"Yes,Connected";
+						}
+						$sql="INSERT INTO member(name,address,zip-code,email,password)
+						VALUES (name,address,zip,mail,pass)";
+
+						if($conn->query($sql)===TRUE)
+						{
+							echo"succesful";
+						}
+						else
+						{
+							echo"error signing up".$conn->error;
+						}
+						$conn->close();
+					?>
+					<BR>
+					
+				</FORM>
+			</FIELDSET>
+		<div class="footer">
+		 	 <p>copyright @cricketinsideout</p>
+		 	<h3> CONTACT OUR DEVELOPERS:</h3>
+		 	<a href="https://www.facebook.com/pragyan.bhattarai.9"><img src="image/facebook.png"width="40" height="40"></a>
+		 	<a href="https://www.instagram.com/pragyan_rs_45/"><img src="image/instagram.png"width="40" height="40"></a>
+		 	<a href="mailto:123prgrs45@gmail.com"><img src="image/mail.webp"width="40" height="40"></a>
+		</div>
+	</body>
+</html>
