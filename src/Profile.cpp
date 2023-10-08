@@ -1,24 +1,30 @@
 #include "../headers/Profile.hpp"
 
-Profile::Profile(std::string looks, std::string talent, std::string personality){
-    person.look = looks;
-    person.personality = personality;
-    person.talent = talent;
+Profile::Profile(std::string name, std::string password){
+    username = name;
+    login_word = password;
 }
 
-bool Profile::login(std::string name, std::string password){
-    if(name == username && password == login_word)
-        return true;
+bool Profile::set_q(std::string looks, std::string talent, std::string personality){
+    
     return false;
 }
 
 void Profile::add_favorite(compliment favorite){
-    if(favorites.size() < 5)
+    if(favorites.size() < 3 && favorite.cat != favorites.at(0).cat && favorite.cat != favorites.at(1).cat && favorite.cat != favorites.at(2).cat)
         favorites.push_back(favorite);
-    else
+    else if(favorite.cat == favorites.at(0).cat)
         favorites.at(0) = favorite;
+    else if(favorite.cat == favorites.at(1).cat)
+        favorites.at(1) = favorite;
+    else
+        favorites.at(2) = favorite;
 }
 
 std::string Profile::to_string(){
-    return username + '*' + login_word + '*' + person.look + '*' + person.personality + '*' + person.talent + '\n';
+    return username + login_word;
+}
+
+void Profile::upload(){
+    
 }

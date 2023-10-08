@@ -17,7 +17,7 @@ void Data::add_profile(Profile profile){
 
 void Data::to_file(){
     FILE * fp = fopen("profile_data.txt", "w");
-    Profile tempp(NULL, NULL, NULL);
+    Profile tempp(NULL, NULL);
     std::string str;
     for(int i = 0; i < profile_data.size(); i++){
         tempp = profile_data.at(i);
@@ -25,4 +25,14 @@ void Data::to_file(){
         char * line = str_to_char(str);
         fwrite(line, 1, sizeof(tempp.to_string()), fp);
     }
+}
+void Data::readfile(){
+
+}
+bool Data::search(Profile profile){
+    for(Profile p : profile_data){
+        if(p.to_string() == profile.to_string())
+            return true;
+    }
+    return false;
 }
